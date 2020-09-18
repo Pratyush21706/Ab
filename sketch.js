@@ -1,5 +1,5 @@
 localStorage.speed=1;
-var uN,Up;
+var uN,uP;
 var time;
 var food,water,sleep,run,qot,nm,img = localStorage.image;
 var now,end; 
@@ -7,7 +7,7 @@ localStorage.name;
 localStorage.age;
 var talkbox;
 var rand;
-var a = 1,b=1,s = 1,x = 1;
+var a = 2,b=1,s = 1,x = 1;
 localStorage.water, localStorage.calories,localStorage.sleep;
  localStorage.sleep_goal ,localStorage.water_goal ,localStorage.calories_goal ;
             var count =1,karna = 1,h =900;
@@ -27,9 +27,10 @@ frame = loadImage("border.png")
     
 }
 function setup(){
-          createCanvas(windowWidth/1.01, windowHeight);
+          createCanvas(windowWidth, windowHeight);
     
     //Firebase Stuff
+
     var firebaseConfig = {
    apiKey: "AIzaSyBMdyADowFNLi-mVDm91NYnBKSem_peveg",
     authDomain: "ambience-database.firebaseapp.com",
