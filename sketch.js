@@ -1,36 +1,59 @@
+//    Hello and welcome to my project and first thing first, after looking at my complete sketch you you definitely say tht there would be better names for variables, let it be I  am the one who likes the clutters way but if it causes some trouble to you then I am really sorry for it.
+
+//Moving ahead this project is basically made for people who are really conserned about their physical health altough this is a fitness app but it is packed with so many feratures which are comparitively hidden such as book a doctor, a full body medical checkup, setting the goals for the future of viewing the results of your medical tests.
+
+//So without wasting much of your time let's begin
+
+//setting up the localstorage (the most important part of this project) so that the users can log in or log out
 localStorage.speed=1;
-var uN,uP;
+
+//Declaring the two user credential variables
+var uN,Up;
+
+//setting up the time and the various other variables
 var time;
-var food,water,sleep,run,qot,nm,img = localStorage.image;
+var food,water,sleep,run,qot,nm,img;
 var now,end; 
+
+//declaring two localStorage variables to hold the name andthe age of the user permanently
 localStorage.name;
 localStorage.age;
 var talkbox;
 var rand;
-var a = 2,b=1,s = 1,x = 1;
+
+//Creating various minutevariables which will help to change the appStaes
+var a = 1,b=1,s = 1,x = 1,c = 1;
+var count =1,karna = 1,h =900;
+ var i = 1, w = 200;
+var m = 1,r  =1;
+
+//using the localStorage as an holder of user's goals and what he/she may have achived so far
 localStorage.water, localStorage.calories,localStorage.sleep;
  localStorage.sleep_goal ,localStorage.water_goal ,localStorage.calories_goal ;
-            var count =1,karna = 1,h =900;
-;
-var option1 = false;
-var col1="black",col2 = "col1";
 
+//Making a variable boolean value false so that I can check it later
+var option1 = false;
+
+//Defining two variables for colors
+var col1="black",col2 = "col1";
 var nameInput;
+
+// this function will load all the images and multimedia before the programme starts
 function preload(){
   smile =loadImage("intro.png")
             bot = loadImage("bot.png")
 dk = loadImage("desktop.png")
 frame = loadImage("border.png")
-//    smaple = loadImage("abc.jpg")
-
     dark = loadImage("dark.png")
     
 }
 function setup(){
-          createCanvas(windowWidth, windowHeight);
+//    Creating the canvas for the entire screen
+createCanvas(windowWidth, windowHeight);
     
-    //Firebase Stuff
+/*   ========================Firebase stuff Begins Here========================================*/
 
+    // Firebase configuration here
     var firebaseConfig = {
    apiKey: "AIzaSyBMdyADowFNLi-mVDm91NYnBKSem_peveg",
     authDomain: "ambience-database.firebaseapp.com",
@@ -40,202 +63,181 @@ function setup(){
     messagingSenderId: "953268091712",
     appId: "1:953268091712:web:806a6e5cf4181b5159d8a5"
   };
+        //Initialising Firebase here
   firebase.initializeApp(firebaseConfig);
+//    Console Logging firebase
   console.log(firebase);
-  
+//  Initialising the firebase database
  database = firebase.database();
- //Firebase Ends Here   
+ //Firebase stuff Ends Here   
+    
+    /*  ===========================Firebase stuff Ends Here=======================================   */
+
     
     nm = window.innerHeight/17
 col = color(255,255,255,0)
     
-    nextButton = createButton(`→`)
-    nextButton.position(width/2.1,-555)
-    nextButton.style(`background`,`transparent`);
-    nextButton.style(`font-size`,`50px`)
+nextButton = createButton(`→`)
+ nextButton.position(width/2.1,-555)
+  nextButton.style(`background`,`transparent`);
+   nextButton.style(`font-size`,`50px`)
     nextButton.style(`border`,`0px`)
-    nextButton.mousePressed(next)
-    
-   input1 = createInput(``)
-    input1.position(width/4,-555);
-        input1.style(`background`,`transparent`)
-
-    input1.style(`font-size`,`25px`)
-  input1.style(`border-top-style`,`hidden`)
-    input1.style(`border-bottom-style`,`groove`)
-    input1.style(`border-right-style`,`hidden`)
-    input1.style(`border-left-style`,`hidden`)
-            input1.style(`padding-right`,`40px`)
-
+     nextButton.mousePressed(next)
+     //Creating the name input
+       input1 = createInput(``)
+        input1.position(width/4,-555);
+         input1.style(`background`,`transparent`)
+          input1.style(`font-size`,`25px`)
+           input1.style(`border-top-style`,`hidden`)
+            input1.style(`border-bottom-style`,`groove`)
+             input1.style(`border-right-style`,`hidden`)
+              input1.style(`border-left-style`,`hidden`)
+               input1.style(`padding-right`,`40px`)
                 input1.style(`outline`,`0px`)
-                input1.style(`color`,`white`)
-
+                 input1.style(`color`,`white`)
+                  input2 = createInput(``,`password`)
+                   input2.position(width/4,-555);
+                    input2.style(`font-size`,`25px`)
+                     input2.style(`background`,`transparent`)
+                      input2.style(`border-top-style`,`hidden`)
+                       input2.style(`border-bottom-style`,`groove`)
+                        input2.style(`border-right-style`,`hidden`)
+                         input2.style(`border-left-style`,`hidden`)
+                           input2.style(`padding-right`,`40px`)
+                             input2.style(`outline`,`0px`)
+                               input2.style(`color`,`white`)
+                                input3 = createInput(``)
+                                 input3.position(width/4,-555);
+                                  input3.style(`font-size`,`25px`)
+                                   input3.style(`background`,`transparent`)
+                                    input3.style(`border-top-style`,`hidden`)
+                                      input3.style(`border-bottom-style`,`groove`)
+                                        input3.style(`border-right-style`,`hidden`)
+                                         input3.style(`border-left-style`,`hidden`)
+                                          input3.style(`padding-right`,`40px`)
+                                           input3.style(`outline`,`0px`)
+                                              input3.style(`color`,`white`)     
+                                                input4 = createInput(``)
+                                                  input4.position(width/4,-555);
+                                                    input4.style(`font-size`,`25px`)
+                                                     input4.style(`background`,`transparent`)
+                                                      input4.style(`border-top-style`,`hidden`)
+                                                        input4.style(`border-bottom-style`,`groove`)
+                                                         input4.style(`border-right-style`,`hidden`)
+                                                           input4.style(`border-left-style`,`hidden`)
+                                                             input4.style(`padding-right`,`40px`)
+                                                               input4.style(`outline`,`0px`)
+                                                                 input4.style(`color`,`white`)  
+                                                                  input5 = createInput(``,`number`)
+                                                                   input5.position(width/4,-555);
+                                                                    input5.style(`font-size`,`25px`)
+                                                                     input5.style(`background`,`transparent`)
+                                                                       input5.style(`border-top-style`,`hidden`)
+                                                                         input5.style(`border-bottom-style`,`groove`)
+                                                                            input5.style(`border-right-style`,`hidden`)
+                                                                             input5.style(`border-left-style`,`hidden`)
+                                                                              input5.style(`padding-right`,`40px`)
+                                                                               input5.style(`outline`,`0px`)
+                                                                                input5.style(`color`,`white`)
+                                                                                  input6 = createInput(``,`password`)
+                                                                                     input6.position(width/4,-555);
+                                                                                         input6.style(`font-size`,`25px`)
+                                                                                           input6.style(`background`,`transparent`)
+                                                                                              input6.style(`border-top-style`,`hidden`)
+                                                                                                input6.style(`border-bottom-style`,`groove`)
+                                                                                                 input6.style(`border-right-style`,`hidden`)
+                                                                                                   input6.style(`border-left-style`,`hidden`)
+                                                                                                     input6.style(`padding-right`,`40px`)
+                                                                                                       input6.style(`outline`,`0px`)
+                                                                                                        input6.style(`color`,`white`)
+                                                                                                          input7 = createInput(``,`password`)
+                                                                                                            input7.position(width/4,-555);
+                                                                                                                input7.style(`font-size`,`25px`)
+                                                                                                                    input7.style(`background`,`transparent`)
+                                                                                                                      input7.style(`border-top-style`,`hidden`)
+                                                                                                                          input7.style(`border-bottom-style`,`groove`)
+                                                                                                                            input7.style(`border-right-style`,`hidden`)
+                                                                                                                             input7.style(`border-left-style`,`hidden`)
+                                                                                                                               input7.style(`padding-right`,`40px`)
+                                                                                                                                 input7.style(`outline`,`0px`)
+                                                                                                                                  input7.style(`color`,`white`)
+                                                                                                                                     registerButton = createButton(`Log In`)
+     registerButton.attribute('disabled', '');
+                                                                                                                                       registerButton.position(width/2.1,-555)
+                                                                                                                                           registerButton.style(`background-color`,`#5D9DFF`);
+                                                                                                                                               registerButton.style(`font-size`,`35px`)
+                                                                                                                                                  registerButton.style(`border`,`0px`)
+                                                                                                                                                     registerButton.style(`color`,`white`)
+                                                                                                                                                       registerButton.style(`padding-left`,`100px`)
+                                                                                                                                                         registerButton.style(`padding-right`,`100px`)
+                                                                                                                                                            registerButton.style(`padding-top`,`5px`)
+                                                                                                                                                               registerButton.style(`padding-bottom`,`5px`)
+                                                                                                                                                                   registerButton.style(`border-radius`,`6px`)
+                                                                                                                                                                    registerButton.style(`box-shadow`,`0px 5px 10px rgba(93, 157, 255, 0.05)`)
+                                                                                                                                                                   registerButton.mousePressed(login)
+                                                                                                                                                                 success = createButton(`Register`)
+                                                                                                                                                               success.position(width/2.1,-555)
+                                                                                                                                                            success.style(`background-color`,`#5D9DFF`);
+                                                                                                                                                           success.style(`font-size`,`35px`)
+                                                                                                                                                         success.style(`border`,`0px`)
+                                                                                                                                                       success.style(`color`,`white`)
+                                                                                                                                                    success.style(`padding-left`,`100px`)
+                                                                                                                                                 success.style(`padding-right`,`100px`)
+                                                                                                                                               success.style(`padding-top`,`5px`)
+                                                                                                                                           success.style(`padding-bottom`,`5px`)
+                                                                                                                                       success.style(`border-radius`,`6px`)
+                                                                                                                                   success.style(`box-shadow`,`0px 5px 10px rgba(93, 157, 255, 0.05)`)
+                                                                                                                               success.mousePressed(send)
+                                                                                                                            Health = createButton(`.`)
+                                                                                                                         Health.style(`background-color`,col);
+                                                                                                                     Health.position(15,-555)
+                                                                                                                 Health.style(`border`,`2px`)
+                                                                                                                Health.style(`border-radius`,`15px`)
+                                                                                                               Health.style(`padding-left`,`15px`)
+                                                                                                            Health.style(`padding-right`,`160px`)
+                                                                                                        Health.style(`padding-top`,`50px`)
+                                                                                                    Health.style(`padding-bottom`,`10px`) 
     
-    input2 = createInput(``,`password`)
-    input2.position(width/4,-555);
-    input2.style(`font-size`,`25px`)
-    input2.style(`background`,`transparent`)
-        input2.style(`border-top-style`,`hidden`)
-    input2.style(`border-bottom-style`,`groove`)
-    input2.style(`border-right-style`,`hidden`)
-    input2.style(`border-left-style`,`hidden`)
-//    input1.style(`bottom border`,`20px solid col1`)
-        input2.style(`padding-right`,`40px`)
-            input2.style(`outline`,`0px`)
-                input2.style(`color`,`white`)
-
-    input3 = createInput(``)
-    input3.position(width/4,-555);
-    input3.style(`font-size`,`25px`)
-    input3.style(`background`,`transparent`)
-    input3.style(`border-top-style`,`hidden`)
-    input3.style(`border-bottom-style`,`groove`)
-    input3.style(`border-right-style`,`hidden`)
-    input3.style(`border-left-style`,`hidden`)
-    input3.style(`padding-right`,`40px`)
-    input3.style(`outline`,`0px`)
-    input3.style(`color`,`white`)
+                                                                                                 Goals = createButton(`.`)
+                                                                                               Goals.style(`background-color`,col);
+                                                                                           Goals.position(width/1.95,-555)
+                                                                                       Goals.style(`border`,`2px`)
+                                                                                    Goals.style(`border-radius`,`15px`)
+                                                                                 Goals.style(`padding-left`,`20px`)
+                                                                            Goals.style(`padding-right`,`160px`)
+                                                                         Goals.style(`padding-top`,`50px`)
+                                                                     Goals.style(`padding-bottom`,`10px`)    
     
-    input4 = createInput(``)
-    input4.position(width/4,-555);
-    input4.style(`font-size`,`25px`)
-    input4.style(`background`,`transparent`)
-    input4.style(`border-top-style`,`hidden`)
-    input4.style(`border-bottom-style`,`groove`)
-    input4.style(`border-right-style`,`hidden`)
-    input4.style(`border-left-style`,`hidden`)
-    input4.style(`padding-right`,`40px`)
-    input4.style(`outline`,`0px`)
-    input4.style(`color`,`white`)
+                                                                Bot= createButton(`.`)
+                                                            Bot.style(`background-color`,col);
+                                                         Bot.mousePressed(bring)
+                                                       Bot.position(15,-555)
+                                                     Bot.style(`border`,`2px`)
+                                                   Bot.style(`border-radius`,`15px`)
+                                                 Bot.style(`padding-left`,`20px`)
+                                               Bot.style(`padding-right`,`160px`)
+                                             Bot.style(`padding-top`,`50px`)
+                                         Bot.style(`padding-bottom`,`10px`)   
     
-    input5 = createInput(``,`number`)
-    input5.position(width/4,-555);
-    input5.style(`font-size`,`25px`)
-    input5.style(`background`,`transparent`)
-    input5.style(`border-top-style`,`hidden`)
-    input5.style(`border-bottom-style`,`groove`)
-    input5.style(`border-right-style`,`hidden`)
-    input5.style(`border-left-style`,`hidden`)
-    input5.style(`padding-right`,`40px`)
-    input5.style(`outline`,`0px`)
-    input5.style(`color`,`white`)
-    
-    input6 = createInput(``,`password`)
-    input6.position(width/4,-555);
-    input6.style(`font-size`,`25px`)
-    input6.style(`background`,`transparent`)
-    input6.style(`border-top-style`,`hidden`)
-    input6.style(`border-bottom-style`,`groove`)
-    input6.style(`border-right-style`,`hidden`)
-    input6.style(`border-left-style`,`hidden`)
-    input6.style(`padding-right`,`40px`)
-    input6.style(`outline`,`0px`)
-    input6.style(`color`,`white`)
-   
-    
-     input7 = createInput(``,`password`)
-    input7.position(width/4,-555);
-    input7.style(`font-size`,`25px`)
-    input7.style(`background`,`transparent`)
-    input7.style(`border-top-style`,`hidden`)
-    input7.style(`border-bottom-style`,`groove`)
-    input7.style(`border-right-style`,`hidden`)
-    input7.style(`border-left-style`,`hidden`)
-    input7.style(`padding-right`,`40px`)
-    input7.style(`outline`,`0px`)
-    input7.style(`color`,`white`)
-    
-    
-    
-radio = createRadio();
-    radio.option(`Male`,`Male`)
-        radio.option(`Female`)
-    radio.style('width', '800px');
-    radio.position(200,-555)
-
-    registerButton = createButton(`Log In`)
-    registerButton.position(width/2.1,-555)
-    registerButton.style(`background-color`,`#5D9DFF`);
-    registerButton.style(`font-size`,`35px`)
-    registerButton.style(`border`,`0px`)
-        registerButton.style(`color`,`white`)
-        registerButton.style(`padding-left`,`100px`)
-            registerButton.style(`padding-right`,`100px`)
-                registerButton.style(`padding-top`,`5px`)
-                    registerButton.style(`padding-bottom`,`5px`)
-                        registerButton.style(`border-radius`,`6px`)
-                         registerButton.style(`box-shadow`,`0px 5px 10px rgba(93, 157, 255, 0.05)`)
-        registerButton.mousePressed(login)
-
-    
-      success = createButton(`Register`)
-    success.position(width/2.1,-555)
-    success.style(`background-color`,`#5D9DFF`);
-    success.style(`font-size`,`35px`)
-    success.style(`border`,`0px`)
-        success.style(`color`,`white`)
-        success.style(`padding-left`,`100px`)
-            success.style(`padding-right`,`100px`)
-                success.style(`padding-top`,`5px`)
-                    success.style(`padding-bottom`,`5px`)
-                        success.style(`border-radius`,`6px`)
-                         success.style(`box-shadow`,`0px 5px 10px rgba(93, 157, 255, 0.05)`)
-                            success.mousePressed(send)
-//let am = window.innerWidth+"px";
-//    console.log(am)
-   Health = createButton(`.`)
-Health.style(`background-color`,col);
-Health.position(15,-555)
-Health.style(`border`,`2px`)
-   Health.style(`border-radius`,`15px`)
-  Health.style(`padding-left`,`15px`)
-           Health.style(`padding-right`,`160px`)
-               Health.style(`padding-top`,`50px`)
-                   Health.style(`padding-bottom`,`10px`)
-    
-     Goals = createButton(`.`)
-Goals.style(`background-color`,col);
-Goals.position(width/1.95,-555)
-Goals.style(`border`,`2px`)
-   Goals.style(`border-radius`,`15px`)
-  Goals.style(`padding-left`,`20px`)
-           Goals.style(`padding-right`,`160px`)
-               Goals.style(`padding-top`,`50px`)
-                   Goals.style(`padding-bottom`,`10px`)
-    
-Bot= createButton(`.`)
-Bot.style(`background-color`,col);
-    Bot.mousePressed(bring)
-Bot.position(15,-555)
-Bot.style(`border`,`2px`)
-Bot.style(`border-radius`,`15px`)
-Bot.style(`padding-left`,`20px`)
-Bot.style(`padding-right`,`160px`)
-Bot.style(`padding-top`,`50px`)
-Bot.style(`padding-bottom`,`10px`)
-    
-    Reports= createButton(`.`)
-Reports.style(`background-color`,col);
-Reports.position(width/1.95,-555)
-Reports.style(`border`,`2px`)
-Reports.style(`border-radius`,`15px`)
-Reports.style(`padding-left`,`20px`)
-Reports.style(`padding-right`,`160px`)
-Reports.style(`padding-top`,`50px`)
-Reports.style(`padding-bottom`,`10px`)
-    
-    newUser = createButton(`Create Account`)
-newUser.position(width/8,-555)    ;
-    newUser.style(`background`,`transparent`);
-    newUser.style(`color`,`white`);
-    newUser.style(`border`,`0px`);
+                                      Reports= createButton(`.`)
+                                   Reports.style(`background-color`,col);
+                                 Reports.position(width/1.95,-555)
+                                Reports.style(`border`,`2px`)
+                             Reports.style(`border-radius`,`15px`)
+                           Reports.style(`padding-left`,`20px`)
+                         Reports.style(`padding-right`,`160px`)
+                      Reports.style(`padding-top`,`50px`)
+                   Reports.style(`padding-bottom`,`10px`)                                                                                                                                        
+                newUser = createButton(`Create Account`)
+             newUser.position(width/8,-555)    ;
+           newUser.style(`background`,`transparent`);
+         newUser.style(`color`,`white`);
+        newUser.style(`border`,`0px`);
     newUser.style(`outline`,`0px`)
-        newUser.style(`font-size`,`18px`)
-    newUser.mousePressed(newU);
-
-     talkbox = createInput(``).attribute(`placeholder`,`    Introduction to Ambibot`)
-    talkbox.position(width/1.95,-555)
-
+  newUser.style(`font-size`,`18px`)
+newUser.mousePressed(newU);
+talkbox = createInput(``).attribute(`placeholder`,`    Introduction to Ambibot`)
+ talkbox.position(width/1.95,-555)
     talkbox.style(`font-size`,`28px`)
   talkbox.style(`padding-right`,`115px`)
 talkbox.style("border","40px")
@@ -411,11 +413,9 @@ function login(){
     localStorage.age = input2.value();
     name = input1.value();
     age = input2.value();
-              tint(240,240,240)
 
-
-
-    console.log(time)
+c = 2;
+    console.log("hdsadkjdjas")
     
 //      var data ={
 //          TIME :time,
@@ -462,7 +462,8 @@ console.log("Name: "+uN+" Pass: "+uP)
     update();
 }
 function errData(err){
-console.log(err)
+console.log("error: "+err)
+    console.log("dljdjwkdwkhdkw")
 }
 
 function finished(error) {
@@ -477,6 +478,20 @@ function next(){
 }
 function draw(){
     background("white");
+    let xyz = input1.value().length;
+    let length = input2.value().length;
+    if(xyz>1&&length>4){
+        registerButton.removeAttribute('disabled')
+            console.log(xyz)
+    registerButton.style(`background-color`,`0065ff`);
+                                                                                                                                                   registerButton.style(`background-color`,`#5D9DFF`);
+
+    }else{
+         registerButton.attribute('disabled', '');
+            registerButton.style(`background-color`,"black");
+
+    }                                                                                                                                           
+
 //    if(deviceOrientation = `landscape`){
 //        alert('please rotate your phone')
 //    }
@@ -541,7 +556,7 @@ rect(width/1.9,height/1.28,width/9,3)
 //                   image(age,width/7,height/1.7,width/16,height/16)
              registerButton.position(width/8,height/1.4)
 fill("white");
-         textSize(width/10)
+         textSize(45)
          textFont("arial")
          textStyle("bold")
          text("Hello.", width/14,height/8)
@@ -560,7 +575,36 @@ newUser.position(width/3,height/1.2)
          input7.position(width/12,-555);
          success.position(width/8-555)
          a2.position(width/20,-555);
-
+         if(c==2){
+             col = color(255,255,255,0.8)
+             rectMode(CENTER)
+                      tint(240,240,240)
+ if(m==1){
+    i = i+2
+    w  =w-2;
+  }
+  if(m==2){
+    i = i-2
+    w  =w+2;
+    
+  }
+  if(i ==215){
+  m = 2
+     r = random(0,255)
+  g = random(0,255)
+  b = random(0,255)
+  }
+  if(i==-1){
+    m = 1
+  }
+ 
+  
+  noStroke();
+  fill("red")
+  ellipse(width/2,height/2,i,i)
+  fill("orange")
+  ellipse(width/2,height/2,w,w)
+         }
      }
      if(a===3){
                   background("#313131")
@@ -570,7 +614,7 @@ newUser.position(width/3,height/1.2)
 newUser.position(width/3,-555)  
              registerButton.position(width/8,-555)
          fill("white");
-         textSize(width/10)
+         textSize(40)
          textFont("arial")
          textStyle("bold")
          text("Join Us.", width/14,height/8)
@@ -581,7 +625,7 @@ newUser.position(width/3,-555)
          input7.position(width/12,height/1.39);
          success.position(width/8,height/1.2)
   fill("gray");
-         textSize(width/23)
+         textSize(20)
          textFont("arial")
          textStyle("normal")
          text("Username",width/12,height/4.2);
@@ -590,12 +634,16 @@ newUser.position(width/3,-555)
          text("Password",width/12,height/1.65);
          text("Confirm Password",width/12,height/1.4);
 a2.position(width/3,height/1.07);
+         fill("red")
+//         ellipse(200,200,20,20)
+
      }
 }
     if(localStorage.speed==34){
     if(deviceOrientation ==="landscape"){
 //        alert("rotate your device")
     }
+         a2.position(width/20,-555);
 
         if(window.innerWidth>550){
                      resizeCanvas(window.innerWidth,window.innerHeight)
@@ -715,7 +763,8 @@ image(img,0,0,width/6,height/12)
         backButton.position(200,-555);
         talkbox.position(200,-555);
        
-      
+      newUser.position(width/8,-555)    ;
+
 //        profile.position(width/5,12)
      
 see.position(200,-5555)
