@@ -477,6 +477,7 @@ function next(){
     a = 2;
 }
 function draw(){
+
     background("white");
     let xyz = input1.value().length;
     let length = input2.value().length;
@@ -496,7 +497,9 @@ function draw(){
 //        alert('please rotate your phone')
 //    }
     drawSprites();
-    
+textSize(50)
+fill("balck")
+    text(window.innerWidth,200,200)
     if(localStorage.water==null){
         localStorage.water = 0;
     }
@@ -535,6 +538,9 @@ function draw(){
    text("Welcome!",width/5,height/1.8)
           textStyle("normal")
 
+textSize(50)
+fill("balck")
+    text(window.innerWidth,200,200)
      textSize(21);
     text("We are happy to have you & welcome",width/12,height/1.6)
          text(`you to experience the "Ambience Way"`,width/12,height/1.5)
@@ -555,7 +561,12 @@ rect(width/1.9,height/1.28,width/9,3)
 //          image(user,width/7,height/2.1,width/16,height/16,20)
 //                   image(age,width/7,height/1.7,width/16,height/16)
              registerButton.position(width/8,height/1.4)
+textSize(50)
+fill("balck")
+    text(window.innerWidth,200,200)
+
 fill("white");
+
          textSize(45)
          textFont("arial")
          textStyle("bold")
@@ -608,7 +619,9 @@ newUser.position(width/3,height/1.2)
      }
      if(a===3){
                   background("#313131")
-
+textSize(50)
+fill("balck")
+    text(window.innerWidth,200,200)
          input1.position(2,-5555);
                   input2.position(2,-5555);
 newUser.position(width/3,-555)  
@@ -651,7 +664,9 @@ a2.position(width/3,height/1.07);
             textSize(width/30);
 //            textStyle("bold");
             newUser.position(width/3,-555)  
-
+textSize(50)
+fill("balck")
+    text(window.innerWidth,200,200)
             fill("white")
             text(localStorage.name,width/12,height/12)
 Health.style(`padding-left`,`15px`)
@@ -731,7 +746,7 @@ fill("#BB86FC")
 //          textSize(width/20)
 //text("Today's Status",8,height/2.7)
 //
-//        noFill();
+//        noFill(); of
 //        stroke("white")
 //        strokeWeight(3)
 //        circle(width/2,height/17,width/5,height/40)
