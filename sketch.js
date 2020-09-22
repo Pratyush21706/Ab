@@ -49,7 +49,7 @@ frame = loadImage("border.png")
 }
 function setup(){
 //    Creating the canvas for the entire screen
-createCanvas(windowWidth, windowHeight);
+createCanvas(window.innerWidth, window. innerHeight);
     
 /*   ========================Firebase stuff Begins Here========================================*/
 
