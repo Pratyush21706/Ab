@@ -539,7 +539,7 @@ fill("balck")
           textStyle("normal")
 
 textSize(50)
-fill("balck")
+fill("red")
     text(window.innerWidth,200,200)
      textSize(21);
     text("We are happy to have you & welcome",width/12,height/1.6)
