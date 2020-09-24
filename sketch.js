@@ -45,11 +45,11 @@ function preload(){
 dk = loadImage("desktop.png")
 frame = loadImage("border.png")
     dark = loadImage("dark.png")
-    
+      smile =loadImage("intro.png")
+            bot = loadImage("bot.png")
 }
 function setup(){
-//    Creating the canvas for the entire screen
-createCanvas(window.innerWidth, window. innerHeight);
+   canvas =  createCanvas(window.innerWidth,window.innerHeight)
     
 /*   ========================Firebase stuff Begins Here========================================*/
 
@@ -477,19 +477,18 @@ function next(){
     a = 2;
 }
 function draw(){
-
     background("white");
     let xyz = input1.value().length;
     let length = input2.value().length;
     if(xyz>1&&length>4){
         registerButton.removeAttribute('disabled')
             console.log(xyz)
-    registerButton.style(`background-color`,`0065ff`);
+            registerButton.style(`background-color`,"#0065ff",`color`,'white');
                                                                                                                                                    registerButton.style(`background-color`,`#5D9DFF`);
 
     }else{
          registerButton.attribute('disabled', '');
-            registerButton.style(`background-color`,"black");
+    registerButton.style(`background-color`,`#dce8fa`, `color`,`red`);
 
     }                                                                                                                                           
 
@@ -497,9 +496,9 @@ function draw(){
 //        alert('please rotate your phone')
 //    }
     drawSprites();
-textSize(50)
-fill("balck")
-    text(window.innerWidth,200,200)
+    fill("black")
+    textSize(40)
+    text("W: "+window.innerWidth+"  H: "+window.innerHeight,20,60);
     if(localStorage.water==null){
         localStorage.water = 0;
     }
@@ -538,9 +537,6 @@ fill("balck")
    text("Welcome!",width/5,height/1.8)
           textStyle("normal")
 
-textSize(50)
-fill("red")
-    text(window.innerWidth,200,200)
      textSize(21);
     text("We are happy to have you & welcome",width/12,height/1.6)
          text(`you to experience the "Ambience Way"`,width/12,height/1.5)
@@ -561,12 +557,7 @@ rect(width/1.9,height/1.28,width/9,3)
 //          image(user,width/7,height/2.1,width/16,height/16,20)
 //                   image(age,width/7,height/1.7,width/16,height/16)
              registerButton.position(width/8,height/1.4)
-textSize(50)
-fill("balck")
-    text(window.innerWidth,200,200)
-
 fill("white");
-
          textSize(45)
          textFont("arial")
          textStyle("bold")
@@ -619,9 +610,7 @@ newUser.position(width/3,height/1.2)
      }
      if(a===3){
                   background("#313131")
-textSize(50)
-fill("balck")
-    text(window.innerWidth,200,200)
+
          input1.position(2,-5555);
                   input2.position(2,-5555);
 newUser.position(width/3,-555)  
@@ -664,9 +653,7 @@ a2.position(width/3,height/1.07);
             textSize(width/30);
 //            textStyle("bold");
             newUser.position(width/3,-555)  
-textSize(50)
-fill("balck")
-    text(window.innerWidth,200,200)
+
             fill("white")
             text(localStorage.name,width/12,height/12)
 Health.style(`padding-left`,`15px`)
@@ -746,7 +733,7 @@ fill("#BB86FC")
 //          textSize(width/20)
 //text("Today's Status",8,height/2.7)
 //
-//        noFill(); of
+//        noFill();
 //        stroke("white")
 //        strokeWeight(3)
 //        circle(width/2,height/17,width/5,height/40)
